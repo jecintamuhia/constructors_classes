@@ -1,5 +1,68 @@
 
-
+// // Define the Student object constructor
+// function Student(name, completionStatus, expertiseArea) {
+//     this.name = name;
+//     this.completionStatus = completionStatus;
+//     this.expertiseArea = expertiseArea;
+//   }
+  
+//   // Define the Course class
+//   function Course(title, instructor, students) {
+//     this.title = title;
+//     this.instructor = instructor;
+//     this.students = students || []; // Default to an empty array
+//   }
+  
+//   // Prototype methods for the Course class
+  
+//   // 1. Return names of students who completed the course
+//   Course.prototype.getCompletedStudents = function() {
+//     return this.students.filter(student => student.completionStatus).map(student => student.name);
+  
+//   // 2. Count enrolled students by expertise area
+//   Course.prototype.countStudentsByExpertise = function() {
+//     const counts = {};
+//     this.students.forEach(student => {
+//       if (counts[student.expertiseArea]) {
+//         counts[student.expertiseArea]++;
+//       } else {
+//         counts[student.expertiseArea] = 1;
+//       }
+//     });
+//     return counts;
+//   };
+  
+//   // 3. Output different messages based on the number of students
+//   Course.prototype.instructorMessage = function() {
+//     if (this.students.length > 5) {
+//       return `Instructor ${this.instructor}, you have a large class with ${this.students.length} students.  Good job!`;
+//     } else {
+//       return `Instructor ${this.instructor}, you have a smaller class with ${this.students.length} students.  Engage them!`;
+//     }
+//   };
+  
+//   // --- Example Usage ---
+  
+//   // Create some Student objects
+//   const student1 = new Student("Alice", true, "Web Development");
+//   const student2 = new Student("Bob", false, "Data Science");
+//   const student3 = new Student("Charlie", true, "Web Development");
+//   const student4 = new Student("David", true, "AI");
+//   const student5 = new Student("Eve", false, "Data Science");
+//   const student6 = new Student("Frank", true, "AI");
+//   const student7 = new Student("Grace", false, "AI");
+  
+//   // Create a Course object
+//   const course1 = new Course("Web Development Basics", "John Doe", [student1, student2, student3, student4, student5, student6, student7]);
+  
+//   // Demonstrate the prototype methods
+//   console.log("Completed Students:", course1.getCompletedStudents());
+//   console.log("Student counts by expertise:", course1.countStudentsByExpertise());
+//   console.log("Instructor Message:", course1.instructorMessage());
+  
+//   //Another example with fewer students
+//   const course2 = new Course("Data Science 101", "Jane Smith", [student1, student2]);
+//   console.log("Instructor Message:", course2.instructorMessage());
 
 function FeatureToggle(featureName,userGroupAccess){
     this.featureName=featureName;
@@ -173,7 +236,7 @@ Employee.prototype.calculateAverageScore = function() {
 
     switch (performanceLevel) {
       case "Excellent":
-        this.addFeedback(`Great job, ${this.name}! Keep up the excellent work!`);
+        this.addFeedback(`Great job, ${this.name}! Keep it up  work!`);
         break;
       case "Good":
         this.addFeedback(`Good job, ${this.name}! Continue with this level of performance.`);
@@ -230,3 +293,61 @@ console.log(employee2.feedback);
 
 const metricKey = "efficiency";
 console.log(employee2.performanceMetrics[metricKey]);
+
+// number five
+function Student(name,completionStatus,expertiseArea){
+    this.name=name;
+    this.completionStatus=completionStatus;
+    this.expertiseArea =expertiseArea;
+}
+class Course {
+    constructor(instructor, title,students){
+        this.instructor=instructor;
+        this.title = title;
+        this.students =students
+    }
+}
+Course.prototype.getCompletedStudents=function(){
+return this.students.filter(student =>student.completionStatus).map(student => student.name);
+
+}
+Course.prototype.countStudentsByExpertise = function (){
+    const counts= {};
+    this.students.forEach(student => {
+        if (counts[student.expertiseArea]){
+            counts[student.expertiseArea]++;
+
+        }else{
+            counts[Student.expertiseArea] =1;
+
+        }
+    });
+    return counts;
+};
+
+Course.prototype.instructorMessage = function(){
+    if (this.students.length >5){
+        return `instructor ${this.instructor}, you have  a large class with ${this.students.length} students.`;
+
+}else{
+    return `instructor ${this.instructor} you have a small class  with ${this.students.length} students`;
+}
+};
+
+const studentOne = new Student("Imma",true,"cybersecurity");
+const studentTwo = new Student("Becky",false,"webdevelopment");
+
+const studentThree= new Student("Jennifer",true,"web development");
+const StudentFour= new Student("David",true, "Ai");
+const studentFive= new Student("Kelvin",true,"web development")
+
+const course1 = new Course("Web Development", "jeol Jonnez",[studentOne,studentTwo,studentThree,StudentFour,studentFive]);
+
+console.log("Completed Students:",course1.getCompletedStudents());
+console.log("Student counts by expertise:",course1.countStudentsByExpertise());
+console.log("instructor Message: ",course1.instructorMessage())
+
+
+const course2 = new Course("Data science 101","Jecinta Katya",[studentTwo,studentThree,StudentFour,studentFive]);
+
+console.log("instructor Message:",course2.instructorMessage())
