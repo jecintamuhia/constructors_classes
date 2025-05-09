@@ -142,28 +142,28 @@ class Employee{
     }
 }
 
-Employee.prototype.calculateTotalEarnings=function(){
+Employee.prototype.calculateAverageScore = function() {
     const metricsValues = Object.values(this.performanceMetrics);
-    if (metricsValues.length ===0){
-        return 0;
+    if (metricsValues.length === 0) {
+      return 0; 
     }
-    const sum = metricsValues.reduce((acc, val)=> acc + val,0);
+    const sum = metricsValues.reduce((acc, val) => acc + val, 0);
     return sum / metricsValues.length;
-}
+  };
 
-Employee.prototype.classifyPerformanceLevel = function(){
+  Employee.prototype.classifyPerformanceLevel = function() {
     const averageScore = this.calculateAverageScore();
-    if (averageScore >= 8){
-        return "Excellent";
-    }else if (averageScore >= 6){
-        return"Good";
-    }else if (averageScore >= 4){
-        return "Needs Improvement";
-    }else{
-        return "Poor";
+    if (averageScore >= 8) {
+      return "Excellent";
+    } else if (averageScore >= 6) {
+      return "Good";
+    } else if (averageScore >= 4) {
+      return "Needs Improvement";
+    } else {
+      return "Poor";
     }
-}
-Employee.prototype.addFeedback = function(newFeedback) {
+  };
+  Employee.prototype.addFeedback = function(newFeedback) {
     this.feedback.push(newFeedback);
   };
 
@@ -203,11 +203,11 @@ Employee.prototype.addFeedback = function(newFeedback) {
     }
   };
 
-const employee1 = new Employee(101, "Alice", { communication: 9, efficiency: 8, reliability: 7 }, ["Good communication skills"]);
+const employee1 = new Employee(101, "Jessy", { communication: 9, efficiency: 8, reliability: 7 }, ["Good communication skills"]);
 
 
-// const averageScore = employee1.calculateAverageScore();
-// console.log(`Average score for ${employee1.name}: ${averageScore}`);
+const averageScore = employee1.calculateAverageScore();
+console.log(`Average score for ${employee1.name}: ${averageScore}`);
 
 
 const performanceLevel = employee1.classifyPerformanceLevel();
@@ -221,7 +221,7 @@ employee1.addFeedbackBasedOnPerformance();
 console.log(employee1.feedback);
 
 
-const employee2 = new Employee(102, "Bob", { communication: 3, efficiency: 4, reliability: 5 }, []);
+const employee2 = new Employee(102, "Qefar", { communication: 5, efficiency: 4, reliability: 4 }, []);
 
 
 employee2.addFeedbackBasedOnPerformance();
